@@ -21,12 +21,7 @@ public class SolarSystem : MonoBehaviour
         sunPos = this.transform.position;
     }
 
-    void Start()
-
-    {    
-
-    }
-
+  
 
     // Update is called once per frame
     void Update()
