@@ -20,11 +20,12 @@ public class UiManager : MonoBehaviour
 
     void Update()
     {
+        #region CheckInput
         if (Input.GetMouseButtonDown(0))
         {
             OpenUi();
         }
-        
+        #endregion
     }
 
     private void OpenUi()
@@ -33,12 +34,12 @@ public class UiManager : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, 100.0f))
         {
-            if (hit.transform.CompareTag("Celestials"))
+            if (hit.transform.CompareTag("Celestials") || hit.transform.name.Equals("Sun"))  // i just hate that i needed to add this "or" statement but f it i love my first mecanim
             {
                 Debug.Log(hit.transform.gameObject.name);
                 panel.SetActive(true);
                 textPro.text = hit.transform.gameObject.name;
-                Time.timeScale = 0;
+                
             }
         }
     }
@@ -48,7 +49,7 @@ public class UiManager : MonoBehaviour
     public void CloseUi()
     {
         panel.SetActive(false);
-        Time.timeScale = 1;
+        
     }
 
 
