@@ -4,22 +4,23 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    private Vector3 tmpMousePosition;
-    private Vector3 center;
+    private Vector3 tmpMousePosition; // variable to store mouse position
+    private Vector3 center;           // variable for position of object which camera will rotates around
     [SerializeField]
-    private float moveSpeed = 5f;
+    private float moveSpeed = 5f;      // camera movement speed 
 
     void Start()
     {
-        tmpMousePosition = Input.mousePosition;
-        center = GameObject.Find("Sun").transform.position;
+        tmpMousePosition = Input.mousePosition;      // first mouse position 
+        center = GameObject.Find("Sun").transform.position;   // our center position 
         
     }
 
 
     void Update()
     {
-        
+        // region that checks if current mouse position is different from last one 
+        #region CheckIfMouseIsIdle
         if (tmpMousePosition != Input.mousePosition)
         {
             TARDIS(0);
@@ -30,12 +31,13 @@ public class CameraMovement : MonoBehaviour
             TARDIS(1);
             transform.RotateAround(center,Vector3.up,moveSpeed*Time.deltaTime);
         }
-
+        #endregion 
 
     }
 
     private void TARDIS(int value)
     {
+        // TIME AND RELATIVE DIMENSIONS IN SPACE :)  (actually just adjusts camera movement speed, nothing fancy :P)
         moveSpeed = value;
     }
 

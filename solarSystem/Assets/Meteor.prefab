@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3c205c750889184197ae7dc7d319ad2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 3351819193556584856, guid: a7eb4afda9304d240bf5185efb96adf3, type: 3}
+  celestials: []
   speed: 30
 --- !u!54 &7907316539771246146
 Rigidbody:

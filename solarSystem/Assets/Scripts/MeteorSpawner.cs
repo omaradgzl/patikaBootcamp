@@ -5,21 +5,17 @@ using UnityEngine;
 public class MeteorSpawner : MonoBehaviour
 {
     [SerializeField]
-    private GameObject meteor;
-    private GameObject spawnedMeteor;
-    private float lifeTime = 5f;
+    private GameObject meteor; // variable to get meteor object
+    private GameObject spawnedMeteor; // variable to store created meteor object 
+    [SerializeField]
+    private float lifeTime = 15f;    // variable for created meteors lifetime
     
-
-    void Start()
-    {
-    }
-
     // Update is called once per frame
     void Update()
     {
-        lifeTime -= Time.deltaTime;
+        lifeTime -= Time.deltaTime; // timer
         //Debug.Log(lifeTime);
-        if (lifeTime<0)
+        if (lifeTime<0)  
         {
             
             InstantiateMeteors();
@@ -29,6 +25,7 @@ public class MeteorSpawner : MonoBehaviour
 
     void InstantiateMeteors()
     {
+        // Method to instantiate meteors 
         if (spawnedMeteor != null)
         {
             Destroy(spawnedMeteor, lifeTime);
@@ -36,7 +33,7 @@ public class MeteorSpawner : MonoBehaviour
         else
         {
             spawnedMeteor = Instantiate(meteor, new Vector3(Random.Range(0, 50), Random.Range(0, 50), Random.Range(0, 50)), Quaternion.identity);
-            lifeTime = 15f;
+            lifeTime = 15f; // reset timer for another meteor
 
         }
 
