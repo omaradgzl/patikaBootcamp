@@ -20,20 +20,24 @@ public class SolarSystem : MonoBehaviour
         celestials = GameObject.FindGameObjectsWithTag("Celestials");
         sunPos = this.transform.position;
     }
-
-  
-
-    // Update is called once per frame
     void Update()
     {
-        this.transform.Rotate(Vector3.up, selfRotationSpeed);
-        for (int  i = 0; i < celestials.Length; i++)
-        {
-            dist = Vector3.Distance(sunPos, celestials[i].transform.position);
-            celestials[i].transform.RotateAround(this.transform.position, Vector3.up, (orbitalRotationSpeed*1000/dist) * Time.deltaTime);
-            celestials[i].transform.Rotate(Vector3.up, selfRotationSpeed);
-           
-        }
+        RotateCelestials();
         
     }
+
+    private void RotateCelestials()
+    {
+        this.transform.Rotate(Vector3.up, selfRotationSpeed);
+        for (int i = 0; i < celestials.Length; i++)
+        {
+            dist = Vector3.Distance(sunPos, celestials[i].transform.position);
+            celestials[i].transform.RotateAround(this.transform.position, Vector3.up, (orbitalRotationSpeed * 1000 / dist) * Time.deltaTime);
+            celestials[i].transform.Rotate(Vector3.up, selfRotationSpeed);
+
+        }
+    }
+
+
+
 }

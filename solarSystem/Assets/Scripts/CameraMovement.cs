@@ -36,7 +36,7 @@ public class CameraMovement : MonoBehaviour
 
     private void TARDIS(int value)
     {
-        Time.timeScale = value;
+        moveSpeed = value;
     }
 
 
