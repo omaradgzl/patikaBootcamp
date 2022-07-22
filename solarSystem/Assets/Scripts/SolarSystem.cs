@@ -11,7 +11,6 @@ public class SolarSystem : MonoBehaviour
     
     private float dist;
     private GameObject[] celestials;
-    private List<Vector3> iterations = new List<Vector3>();
     private Vector3 sunPos;
    
 
